@@ -1,0 +1,26 @@
+﻿@model CustomerTotalSalesModel
+
+@{
+    ViewData["Title"] = $"Total Sales For Customer {Model.Name}";
+    
+    int carsCount = Model.BoughtCars.Count();
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<p>
+    @carsCount Cars Bought;
+</p>
+
+<p>
+    @Model.TotalMoneySpent.ToString("F2")
+</p>
+
+<p>
+    Is a young driver @Model.IsYoungDriver
+</p>
+
+@for (int i = 0; i < carsCount; i++)
+{
+    <p>@Model.BoughtCars.ElementAt(i).Price</p>
+}
